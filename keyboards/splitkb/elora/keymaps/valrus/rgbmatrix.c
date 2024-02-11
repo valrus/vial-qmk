@@ -2,7 +2,7 @@
 
 #if defined(RGB_MATRIX_ENABLE) && defined(RGB_MATRIX_LAYERS)
 
-void keyboard_post_init_rgbmatrix(void) {
+void keyboard_post_init_kb(void) {
     rgb_matrix_enable_noeeprom();
     rgb_matrix_mode(RGB_MATRIX_JELLYBEAN_RAINDROPS);
 }
