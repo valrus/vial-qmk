@@ -32,10 +32,8 @@ GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 SPACE_CADET_ENABLE = no
 
-SRC += rgblight.c
 SRC += rgbmatrix.c
 SRC += encoder.c
-SRC += oled.c
 QUANTUM_LIB_SRC += i2c_master.c
 
 ## Vial-specific settings
