@@ -1,34 +1,54 @@
 #include "valrus.h"
 
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
+
 #if defined(RGB_MATRIX_ENABLE) && defined(RGB_MATRIX_LAYERS)
 
-void keyboard_post_init_kb(void) {
+void keyboard_post_init_rgbmatrix(void) {
     rgb_matrix_enable_noeeprom();
-    rgb_matrix_mode(RGB_MATRIX_JELLYBEAN_RAINDROPS);
+    rgb_matrix_sethsv(HSV_TEAL);
+    rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
+#ifdef CONSOLE_ENABLE
+    print("in keyboard_post_init_kb");
+#endif
 }
 
-bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
-    HSV hsv = {0, 150, 150};
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    HSV hsv = (HSV){HSV_TEAL};
 
     switch(get_highest_layer(layer_state|default_layer_state)) {
         case GAMING:
-            hsv = HSV_PINK;
+            hsv = (HSV){HSV_MAGENTA};
             break;
         case CAPS:
-            hsv = HSV_BLUE;
+            hsv = (HSV){HSV_BLUE};
             break;
         case NUMERIC:
-            hsv = HSV_SPRINGGREEN;
+            hsv = (HSV){HSV_SPRINGGREEN};
             break;
         case ACTIONS:
-            hsv = HSV_CYAN;
+            hsv = (HSV){HSV_GOLDENROD};
             break;
         case SYMBOLS:
-            hsv = HSV_PURPLE;
+            hsv = (HSV){HSV_PURPLE};
             break;
         default:
             break;
     }
+
+    /* if (layer_state_is(layer_state, GAMING)) { */
+    /*     hsv = {HSV_PINK}; */
+    /* } else if (layer_state_is(layer_state, CAPS)) { */
+    /*     hsv = {HSV_BLUE}; */
+    /* } else if (layer_state_is(layer_state, NUMERIC)) { */
+    /*     hsv = {HSV_SPRINGGREEN}; */
+    /* } else if (layer_state_is(layer_state, ACTIONS)) { */
+    /*     hsv = {HSV_CYAN}; */
+    /* } else if (layer_state_is(layer_state, SYMBOLS)) { */
+    /*     hsv = {HSV_PURPLE}; */
+    /* } */
 
     // limit brightness
     if (hsv.v > rgb_matrix_get_val()) {

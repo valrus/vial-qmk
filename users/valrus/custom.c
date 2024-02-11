@@ -1,10 +1,17 @@
 #include "valrus.h"
 
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
+
 #ifdef RGB_MATRIX_ENABLE
 __attribute__((weak)) void keyboard_post_init_rgbmatrix(void) { }
 #endif
 
 void keyboard_post_init_user(void) {
+#ifdef CONSOLE_ENABLE
+    print("in keyboard_post_init_user");
+#endif
 #ifdef RGB_MATRIX_ENABLE
     keyboard_post_init_rgbmatrix();
 #endif

@@ -20,3 +20,6 @@ enum layer_codes {
     GAMING,
     CAPS,
 };
+
+// helper
+#define _HSV(H, S, V) (HSV){ .h = H, .s = S, .v = V }

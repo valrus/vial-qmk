@@ -1,6 +1,8 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 140
 
+#define MYRIAD_ENABLE
+
 #define ENCODER_RESOLUTION 2
 
 #define TAPPING_TOGGLE 1
@@ -12,10 +14,9 @@
     #ifdef RGB_MATRIX_DEFAULT_MODE
         #undef RGB_MATRIX_DEFAULT_MODE
     #endif
-    #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-    #define ENABLE_RGB_MATRIX_STARLIGHT_DUAL_HUE
-    #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_JELLYBEAN_RAINDROPS
     #define RGB_DISABLE_WHEN_USB_SUSPENDED
+    #define ENABLE_RGB_MATRIX_STARLIGHT_DUAL_HUE
+    #define RGB_MATRIX_LAYERS
 #endif
 
 // Allows to use either side as the master. Look at the documentation for info:
