@@ -38,18 +38,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
     }
 
-    /* if (layer_state_is(layer_state, GAMING)) { */
-    /*     hsv = {HSV_PINK}; */
-    /* } else if (layer_state_is(layer_state, CAPS)) { */
-    /*     hsv = {HSV_BLUE}; */
-    /* } else if (layer_state_is(layer_state, NUMERIC)) { */
-    /*     hsv = {HSV_SPRINGGREEN}; */
-    /* } else if (layer_state_is(layer_state, ACTIONS)) { */
-    /*     hsv = {HSV_CYAN}; */
-    /* } else if (layer_state_is(layer_state, SYMBOLS)) { */
-    /*     hsv = {HSV_PURPLE}; */
-    /* } */
-
     // limit brightness
     if (hsv.v > rgb_matrix_get_val()) {
         hsv.v = rgb_matrix_get_val();
